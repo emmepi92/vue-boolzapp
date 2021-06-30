@@ -73,8 +73,29 @@ body {
     flex-direction: column;
     height: 800px;
 }
+
+/* Chat --> Main Menu */
 .chat {
     flex-basis: 50%;
     flex-grow: 1;
     background-image: url("../img/mine.jpg");
+    border-right: 12px solid white;
+}
+.chat .send,
+.chat .received {
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 8px;
+    margin: 6px;
+}
+.chat .send {
+    background-color:lightgreen;
+
+}
+.chat .received {
+    background-color: white;
+}
+.mgs-container-send {
+    display: flex;
+    justify-content: flex-end;
 }
