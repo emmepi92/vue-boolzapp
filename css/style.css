@@ -161,6 +161,10 @@ body {
     background-color: white;
 }
 
+.data-msg {
+    font-size: 10px;
+    text-align: end;
+}
 .mgs-container-send {
     display: flex;
     justify-content: flex-end;
