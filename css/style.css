@@ -18,7 +18,7 @@ i {
     margin: 5px 10px;
 }
 
-h5{
+h5 {
     margin-bottom: 0;
 }
 
@@ -38,6 +38,7 @@ body {
     padding-top: 24px;
     padding-bottom: 24px;
 }
+
 /* Aside Menu */
 .aside-menu {
     background-color: rgb(250, 250, 250);
@@ -65,7 +66,6 @@ body {
     padding: 12px;
 }
 
-
 .notifications > i {
     background-color: white;
     color: rgb(159, 216, 248);
@@ -77,6 +77,7 @@ body {
 .notifications .text-custom {
     text-decoration: underline;
 }
+
 /* Search/Input --> Aside Menu */
 .search-container {
     background-color: white;
@@ -101,6 +102,7 @@ body {
     box-shadow: 1px 0 2px rgb(214, 214, 214);
 
 }
+
 .contact-content {
     border-bottom: 2px solid rgb(250, 250, 250);
     padding: 12px 18px;   
@@ -134,7 +136,6 @@ body {
     padding-left: 24px;
 }
 
-
 /* Chat --> Main Menu */
 .chat {
     flex-basis: 50%;
@@ -143,6 +144,7 @@ body {
     border-right: 12px solid white;
     overflow: auto;
 }
+
 .chat .send,
 .chat .received {
     padding: 5px 10px;
@@ -150,13 +152,15 @@ body {
     border-radius: 5px;
     margin: 6px;
 }
+
 .chat .send {
     background-color:lightgreen;
-
 }
+
 .chat .received {
     background-color: white;
 }
+
 .mgs-container-send {
     display: flex;
     justify-content: flex-end;
@@ -168,6 +172,7 @@ body {
     font-size: 25px;
     color: rgb(108, 115, 118);
 }
+
 .input-msg {
     flex-basis: 50%;
     flex-grow: 1;
