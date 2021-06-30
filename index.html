@@ -14,50 +14,82 @@
     <div id="app">
         <div class="container main-container">
             <div class="row">
-                <div class="aside-menu col-5 p-0">
+                <div class="col-5 p-0">
+                    <div class="aside-menu">
 
-                    <!-- info utente-proprietario -->
-                    <div class="container-aside">
+                        <!-- info utente-proprietario -->
                         <div class="info-user d-flex align-items-center">
+
                             <img  class="round-img" src="./img/avatar_io.jpg" alt="">
                             <div class="name-user">Nome Booleaners</div>
                             <i class="fas fa-circle-notch"></i>
                             <i class="fas fa-comment-alt"></i>
                             <i class="fas fa-ellipsis-v"></i>
-                        </div>
-                    </div>
-
-                    <!-- attiva notifiche  -->
-                    <div class="d-flex align-items-center notifications">
-                        <i class="fas fa-bell-slash"></i>
-                        <div>
-                            <h5>Ricevi notifiche di nuovi messaggi</h5>
-                            <span>Attiva notifiche desktop</span>
-                        </div>
-                    </div>
-                    <!-- cerca input  -->
-                    <div class="search-container">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
-                    </div>
-
-                    <!-- lista conttatti  -->
-                    <div class="contacts-container">
-                        <div class="contact-content"
-                        v-for="(contact,index) in contacts"> 
-                        <img :src="createSrc(contact)" class="round-img" alt="">                       
-                        <span>{{contact.name}}</span>
 
                         </div>
-                    </div>
 
+                        <!-- attiva notifiche  -->
+                        <div class="d-flex align-items-center notifications">
+                            <i class="fas fa-bell-slash"></i>
+                            <div>
+                                <h5>Ricevi notifiche di nuovi messaggi</h5>
+                                <span>Attiva notifiche desktop</span>
+                            </div>
+                        </div>
+
+                        <!-- cerca input  -->
+                        <div class="search-container">
+
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+
+                        </div>
+    
+                        <!-- lista conttatti  -->
+                        <div class="contacts-container">
+                            <div class="contact-content"
+                            v-for="(contact,index) in contacts"> 
+
+                                <img :src="createSrc(contact)" class="round-img" alt="">                       
+                                <span>{{contact.name}}</span>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="main-menu col-7">
-                    ciao
 
-                    <!-- info contatto selezionato -->
-                    <!-- chat -->
-                    <!-- input e icons -->
+                <div class="col-7 p-0 ">
+                    <div class="main-menu">
+
+                        <!-- info contatto selezionato -->
+                        <div class="info-contact d-flex align-items-center">
+                            <img class="round-img" src="./img/avatar_io.jpg" alt="">
+                            <div class="info-contact-content">
+                                <h5>Nome</h5>
+                                <span>ultimo accesso </span>
+                            </div>
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+
+                        <!-- chat -->
+                        <div class="chat">
+                            <div>ciao</div>
+                            <div>ciao</div>    
+                            <div>come stai?</div>
+                        </div>
+    
+                        <!-- input e icons -->
+                        <div>
+                            <i class="far fa-smile"></i>
+                            <input class="input-msg" type="text" placeholder="Scrivi un messaggio">
+                            <i class="fas fa-microphone"></i>
+    
+                        </div>
+
+                    </div>
+
 
                 </div>
             </div>

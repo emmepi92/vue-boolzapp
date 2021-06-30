@@ -1,35 +1,48 @@
-body {
-    background: linear-gradient(to top, rgb(215, 219, 216) 80%, rgb(66, 147, 136) 0%);
-    height:100vh;
-}
-
-.main-container {
-    padding-top: 24px;
-}
-
-.aside-menu {
-    background-color: rgb(234, 234, 234);
-    border: 1px solid black;
-}
-
-.main-menu {
-    background-color: pink;
-    border: 1px solid black;
-
-}
+/* utility classes */
 .round-img {
     width: 80px;
     border-radius: 50%;
 }
 
-.name-user {
- flex-basis: 50%;
- flex-grow: 1;
+input {
+    border: none;
 }
 
+input:focus {
+    outline: none;
+}
+/* End utility */
+
+body {
+    background: linear-gradient(to top, rgb(215, 219, 216) 85%, rgb(66, 147, 136) 0%);
+}
+
+.main-container {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+/* Aside Menu */
+.aside-menu {
+    background-color: rgb(250, 250, 250);
+    border: 1px solid rgb(214, 214, 214);
+    height: 800px;
+}
+
+/* Info User --> Aside Menu */
+.info-user {
+    background-color: rgb(234, 234, 234);
+
+}
+.name-user {
+    flex-basis: 50%;
+    flex-grow: 1;
+}
+
+/* Notifications --> Aside Menu */
 .notifications {
     background-color: rgb(159, 216, 248);
 }
+
 .notifications > i {
     background-color: white;
     color: rgb(159, 216, 248);
@@ -38,13 +51,30 @@ body {
     font-size: 20px;
 }
 
+/* Search/Input --> Aside Menu */
 .search-container {
     background-color: white;
 }
 
-.search-container > input {
-    border: none;
+
+/* Info Contact --> Main Menu */
+.info-contact-content {
+    flex-basis: 50%;
+    flex-grow: 1;
 }
-.search-container > input:focus {
-    outline: none;
+
+
+/* Main Menu */
+.main-menu {
+    background-color: rgb(234, 234, 234);
+    border: 1px solid rgb(214, 214, 214);
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+}
+.chat {
+    flex-basis: 50%;
+    flex-grow: 1;
+    background-image: url("../img/mine.jpg");
 }
