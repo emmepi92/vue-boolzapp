@@ -11,6 +11,12 @@ input {
 input:focus {
     outline: none;
 }
+
+i {
+    color: rgb(177, 177, 177);
+    font-size: 20px;
+    margin: 5px 10px;
+}
 /* End utility */
 
 body {
@@ -85,7 +91,7 @@ body {
 .chat .received {
     padding: 5px 10px;
     display: inline-block;
-    border-radius: 8px;
+    border-radius: 5px;
     margin: 6px;
 }
 .chat .send {
@@ -98,4 +104,18 @@ body {
 .mgs-container-send {
     display: flex;
     justify-content: flex-end;
+}
+
+/* input e icons  --> Main Menu */
+.input-msg-container i {
+    padding: 15px;
+    font-size: 25px;
+    color: rgb(108, 115, 118);
+}
+.input-msg {
+    flex-basis: 50%;
+    flex-grow: 1;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding-left: 15px;
 }
