@@ -43,11 +43,9 @@
 
                     <!-- lista conttatti  -->
                     <div class="contacts-container">
-                        <img class="round-img" src="./img/avatar_1.jpg" alt="">
-                        <span>Michele</span>
-
-                        <div class="contant-content"
-                        v-for="contact in contacts">                        
+                        <div class="contact-content"
+                        v-for="(contact,index) in contacts"> 
+                        <img :src="createSrc(contact)" class="round-img" alt="">                       
                         <span>{{contact.name}}</span>
 
                         </div>

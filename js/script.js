@@ -93,7 +93,10 @@ const add = new Vue (
             
         },
         methods: {
-
+            createSrc: function (contact) {
+                let src ='';
+                return src = './img/avatar' + contact.avatar +'.jpg';
+            }
         }
     }
 )
