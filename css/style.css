@@ -1,0 +1,50 @@
+body {
+    background: linear-gradient(to top, rgb(215, 219, 216) 80%, rgb(66, 147, 136) 0%);
+    height:100vh;
+}
+
+.main-container {
+    padding-top: 24px;
+}
+
+.aside-menu {
+    background-color: rgb(234, 234, 234);
+    border: 1px solid black;
+}
+
+.main-menu {
+    background-color: pink;
+    border: 1px solid black;
+
+}
+.round-img {
+    width: 80px;
+    border-radius: 50%;
+}
+
+.name-user {
+ flex-basis: 50%;
+ flex-grow: 1;
+}
+
+.notifications {
+    background-color: rgb(159, 216, 248);
+}
+.notifications > i {
+    background-color: white;
+    color: rgb(159, 216, 248);
+    padding: 15px 10px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.search-container {
+    background-color: white;
+}
+
+.search-container > input {
+    border: none;
+}
+.search-container > input:focus {
+    outline: none;
+}
