@@ -94,7 +94,6 @@ body {
 
 /* Contacts List --> Aside Menu */
 .contacts-container{
-    margin-right: 18px;
     background-color: white;
     flex-basis: 50%;
     flex-grow: 1;
@@ -141,8 +140,8 @@ body {
     flex-basis: 50%;
     flex-grow: 1;
     background-image: url("../img/mine.jpg");
-    border-right: 12px solid white;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .chat .send,
@@ -168,12 +167,12 @@ body {
 .mgs-container-send {
     display: flex;
     justify-content: flex-end;
-    margin-left: 100px;
+    /* margin-left: 100px; */
 }
-
+/* 
 .mgs-container-received {
     margin-right: 100px;
-}
+} */
 
 
 /* Input & Icons   --> Main Menu */
@@ -190,3 +189,25 @@ body {
     border-radius: 5px;
     padding-left: 15px;
 }
+
+/* scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(177, 177, 177); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: lightslategray; 
+  }
