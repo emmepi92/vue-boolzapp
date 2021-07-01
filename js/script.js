@@ -95,7 +95,19 @@ const add = new Vue (
             filter: '',  
             newContacts: []    
         },
+        created() {
+            this.filteredContacts()
+        },
         methods: {
+            filteredContacts: function () {
+                this.currentUser = 0;
+                return this.newContacts = this.contacts.filter((contact)=> {
+                    if (contact.name.toLowerCase().includes(this.filter.toLowerCase())) {
+                        return true;
+                    }
+                    return false;
+                });
+            },
             createSrc: function (contact) {                
                 return './img/avatar' + contact.avatar +'.jpg';
             },
@@ -109,39 +121,16 @@ const add = new Vue (
             },
             answer: function (index) {
                 let answer = {status: 'received', text: 'ok', date: '10/01/2020 15:30:55'};
-                this.contacts[index].messages.push(answer);             
+                this.newContacts[index].messages.push(answer);             
             },
             sendAMessage: function(index) {  
                 if (this.inputMsg.text.trim() !== '') {
                     let newMsgToSend ={...this.inputMsg, status: 'sent',date:'10/01/2020 15:51:59'} ;  
                     this.inputMsg.text='';
-                    this.contacts[index].messages.push(newMsgToSend);   
+                    this.newContacts[index].messages.push(newMsgToSend);   
                     setTimeout(this.answer(index),5000);  // TODO non funzia il timer    
                 }         
-            },
-            filteredContacts: function () {
-                this.currentUser = 0;
-                return this.newContacts = this.contacts.filter((contact)=> {
-                    if (contact.name.toLowerCase().includes(this.filter.toLowerCase())) {
-                        return true;
-                    }
-                    return false;
-                });
-            },
-            printContacts: function() {
-                if(this.newContacts.length === 0){
-                    return true;
-                }
-            },
-            // se filter è diverso da '' e newcontacts è uguale a 0
-            // ovvero il filter non ha riscontro
-            isFilterInContacts: function () {
-                if (this.newContacts.length === 0 && this.filter !== '') {
-                    return false;
-                } else {
-                    return true
-                }
-            }               
+            }         
         }
     }
 )

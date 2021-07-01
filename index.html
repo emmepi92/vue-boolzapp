@@ -44,35 +44,23 @@
 
                         <!-- Search/Input  -->
                         <div class="search-container">
+
                             <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="filter"
-                                @keyup.enter="filteredContacts()">
+
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" 
+                            v-model="filter"
+                            @keyup.enter="filteredContacts()">
+
                         </div>
 
                         <!-- Contacts List -->
                         <div class="contacts-container">
-                            <div v-if="isFilterInContacts()">
-                                <div class="contact-content" 
-                                v-if="printContacts()" 
-                                v-for="(contact,index) in contacts"
-                                @click="changeUser(index)">
-    
-                                    <img :src="createSrc(contact)" class="round-img" alt="">
-                                    <h5>{{contact.name}}</h5>
-    
-                                </div>
-    
-                                <!-- con l'else non funziona, senza si -->
-                                <!-- non ho capito perchè -->
-    
-                                <div class="contact-content" 
-                                v-for="(contact,index) in newContacts"
-                                @click="changeUser(index)">
-    
-                                    <img :src="createSrc(contact)" class="round-img" alt="">
-                                    <h5>{{contact.name}}</h5>
-    
-                                </div>
+                            <div class="contact-content" 
+                            v-for="(contact,index) in newContacts"
+                            @click="changeUser(index)">
+
+                                <img :src="createSrc(contact)" class="round-img" alt="">
+                                <h5>{{contact.name}}</h5>
 
                             </div>
 
@@ -85,10 +73,10 @@
 
                         <!-- Info Contact  -->
                         <div class="info-contact d-flex align-items-center">
-                            <img class="round-img" src="./img/avatar_io.jpg" alt="">
+                            <img class="round-img" :src="createSrc(newContacts[currentUser])" alt="">
                             <div class="info-contact-content">
-                                <h5>Nome</h5>
-                                <span class="text-custom">Ultimo accesso oggi alle</span>
+                                <h5>{{newContacts[currentUser].name}}</h5>
+                                <span class="text-custom">Ultimo accesso oggi alle </span>
                             </div>
                             <i class="fas fa-search"></i>
                             <i class="fas fa-paperclip"></i>
@@ -96,34 +84,7 @@
                         </div>
 
                         <!-- Chat -->
-                        <div class="chat" v-if="printContacts()">
-
-                            <div v-for="(message,index) in contacts[currentUser].messages">
-                                <div class="row" v-if="isASentMsg(message.status)">
-                                    <div class="col-10 offset-2">
-                                        <div class="mgs-container-sent">
-                                            <div class="sent">
-                                                <div>{{message.text}}</div>
-                                                <div class="data-msg">{{message.date}}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row" v-else>
-                                    <div class="col-10">
-                                        <div class="mgs-container-received">
-                                            <div class="received">
-                                                <div>{{message.text}}</div>
-                                                <div class="data-msg">{{message.date}}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="chat" v-else>
+                        <div class="chat">
                             <div v-for="(message,index) in newContacts[currentUser].messages">
                                 <div class="row" v-if="isASentMsg(message.status)">
                                     <div class="col-10 offset-2">
@@ -149,15 +110,16 @@
                             </div>
                         </div>
 
+
                         <!-- Input & Icons -->
                         <div class="input-msg-container d-flex">
                             <i class="far fa-smile"></i>
 
                             <input class="input-msg" type="text" 
+                            placeholder="Scrivi un messaggio" 
                             v-model="inputMsg.text"
-                            placeholder="Scrivi un messaggio"
                             @keyup.enter="sendAMessage(currentUser)">
-                            
+
                             <i class="fas fa-microphone"></i>
 
                         </div>
