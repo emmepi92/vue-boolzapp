@@ -105,19 +105,19 @@ const add = new Vue (
             changeUser: function(index) {
                 return this.currentUser = index;
             },
+            answer: function (index) {
+                let answer = {status: 'received', text: 'ok', date: '10/01/2020 15:30:55'}
+                this.contacts[index].messages.push(answer);             
+            },
             sendAMessage: function(index) {  
                 if (this.inputMsg.text.trim() !== '') {
-                    let newMsgToSend ={...this.inputMsg, status: 'sent'} ;  
+                    let newMsgToSend ={...this.inputMsg, status: 'sent',date:'10/01/2020 15:51:59'} ;  
                     this.inputMsg.text='';           
-                    return this.contacts[index].messages.push(newMsgToSend);                
+                    this.contacts[index].messages.push(newMsgToSend);   
+                    setTimeout(this.answer(index),5000)  // TODO non funzia il timer
                 }          
-            }, 
-   
-            // TODO resettare l'input dopo l'invio messaggio 
-            // clearInputMsg: function (index) { 
-            //     sendAMessage(index)
-            //     return this.inputMsg.text = '';
-            // }     
+            }
+                
         }
     }
 )
