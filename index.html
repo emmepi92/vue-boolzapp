@@ -45,14 +45,14 @@
                         <!-- Search/Input  -->
                         <div class="search-container">
                             <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat"
-                            v-model="filter" @keyup.enter="filteredContacts()" >
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="filter"
+                                @keyup.enter="filteredContacts()">
                         </div>
 
                         <!-- Contacts List -->
                         <div class="contacts-container">
                             <div class="contact-content" v-if="printContacts()" v-for="(contact,index) in contacts"
-                            @click="changeUser(index)">
+                                @click="changeUser(index)">
 
                                 <img :src="createSrc(contact)" class="round-img" alt="">
                                 <h5>{{contact.name}}</h5>
@@ -63,7 +63,7 @@
                             <!-- non ho capito perchè -->
 
                             <div class="contact-content" v-for="(contact,index) in newContacts"
-                            @click="changeUser(index)">
+                                @click="changeUser(index)">
 
                                 <img :src="createSrc(contact)" class="round-img" alt="">
                                 <h5>{{contact.name}}</h5>
@@ -90,37 +90,9 @@
                         </div>
 
                         <!-- Chat -->
-                        <div class="chat">
+                        <div class="chat" v-if="printContacts()">
 
-                            <div v-if="printContacts()" v-for="(message,index) in contacts[currentUser].messages">
-                                <div class="row" v-if="isASentMsg(message.status)">
-                                    <div class="col-10 offset-2">
-                                        <div class="mgs-container-sent">
-                                            <div class="sent">
-                                                <div>{{message.text}}</div>
-                                                <div class="data-msg">{{message.date}}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row" v-else>
-                                    <div class="col-10">
-                                        <div class="mgs-container-received">
-                                            <div class="received">
-                                                <div>{{message.text}}</div>
-                                                <div class="data-msg">{{message.date}}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <!-- non funziona la lettura dei nuovi messaggi, ovvero il cambio -->
-                            <!-- indice-> contatto-> messaggi -->
-
-                            <div v-else v-for="(message,index) in newContacts[currentUser].messages">
+                            <div v-for="(message,index) in contacts[currentUser].messages">
                                 <div class="row" v-if="isASentMsg(message.status)">
                                     <div class="col-10 offset-2">
                                         <div class="mgs-container-sent">
@@ -146,14 +118,39 @@
                         </div>
 
 
+                        <!-- non funziona la lettura dei nuovi messaggi, ovvero il cambio -->
+                        <!-- indice-> contatto-> messaggi -->
+                        <div class="chat" v-else>
+                            <div v-for="(message,index) in newContacts[currentUser].messages">
+                                <div class="row" v-if="isASentMsg(message.status)">
+                                    <div class="col-10 offset-2">
+                                        <div class="mgs-container-sent">
+                                            <div class="sent">
+                                                <div>{{message.text}}</div>
+                                                <div class="data-msg">{{message.date}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" v-else>
+                                    <div class="col-10">
+                                        <div class="mgs-container-received">
+                                            <div class="received">
+                                                <div>{{message.text}}</div>
+                                                <div class="data-msg">{{message.date}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Input & Icons -->
                         <div class="input-msg-container d-flex">
                             <i class="far fa-smile"></i>
-                            <input class="input-msg" type="text" 
-                            v-model="inputMsg.text"
-                            placeholder="Scrivi un messaggio"
-                            @keyup.enter="sendAMessage(currentUser)"
-                            >
+                            <input class="input-msg" type="text" v-model="inputMsg.text"
+                                placeholder="Scrivi un messaggio" @keyup.enter="sendAMessage(currentUser)">
                             <i class="fas fa-microphone"></i>
 
                         </div>

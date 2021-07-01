@@ -130,8 +130,8 @@ const add = new Vue (
             },
             printContacts: function() {
                 if(this.newContacts.length === 0){
-                    return true
-                }               
+                    return true;
+                }
             }
                 
         }
