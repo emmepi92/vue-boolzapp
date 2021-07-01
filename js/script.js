@@ -89,13 +89,20 @@ const add = new Vue (
                         }
                     ],
                 },
-            ]
+            ],
+            currentUser: 0
             
         },
         methods: {
             createSrc: function (contact) {                
                 return './img/avatar' + contact.avatar +'.jpg';
+            },
+            isASentMsg: function (status) {
+                if (status === 'sent'){
+                    return true;
+                }
             }
+            
         }
     }
 )

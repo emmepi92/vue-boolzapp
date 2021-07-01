@@ -143,7 +143,7 @@ body {
     overflow-x: hidden;
 }
 
-.chat .send,
+.chat .sent,
 .chat .received {
     padding: 5px 10px;
     display: inline-block;
@@ -151,7 +151,7 @@ body {
     margin: 6px;
 }
 
-.chat .send {
+.chat .sent {
     background-color:lightgreen;
 }
 
@@ -163,10 +163,11 @@ body {
     font-size: 10px;
     text-align: end;
 }
-.mgs-container-send {
+.mgs-container-sent {
     display: flex;
     justify-content: flex-end;
 }
+
 
 /* Input & Icons   --> Main Menu */
 .input-msg-container i {
