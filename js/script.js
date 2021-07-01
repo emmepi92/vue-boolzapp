@@ -91,10 +91,7 @@ const add = new Vue (
                 },
             ],
             currentUser: 0,
-            inputMsg:{
-                status:'sent'
-            }
-            
+            inputMsg:{}            
         },
         methods: {
             createSrc: function (contact) {                
@@ -108,13 +105,17 @@ const add = new Vue (
             changeUser: function(index) {
                 return this.currentUser = index;
             },
-            sendAMessage: function(index) {
-                this.contacts[index].messages.push(this.inputMsg);                
+            sendAMessage: function(index) {                 
+                let newMsgToSend ={...this.inputMsg, status: 'sent'} ;  
+                this.inputMsg.text='';           
+                return this.contacts[index].messages.push(newMsgToSend);                
             }, 
+   
             // TODO resettare l'input dopo l'invio messaggio 
-            clearInputMsg: function () { 
-                return this.inputMsg.text = '';
-            }
+            // clearInputMsg: function (index) { 
+            //     sendAMessage(index)
+            //     return this.inputMsg.text = '';
+            // }
             
         }
     }
