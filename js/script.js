@@ -91,7 +91,9 @@ const add = new Vue (
                 },
             ],
             currentUser: 0,
-            inputMsg:{}            
+            inputMsg:{},
+            filter: '',  
+            newContacts: []    
         },
         methods: {
             createSrc: function (contact) {                
@@ -106,7 +108,7 @@ const add = new Vue (
                 return this.currentUser = index;
             },
             answer: function (index) {
-                let answer = {status: 'received', text: 'ok', date: '10/01/2020 15:30:55'}
+                let answer = {status: 'received', text: 'ok', date: '10/01/2020 15:30:55'};
                 this.contacts[index].messages.push(answer);             
             },
             sendAMessage: function(index) {  
@@ -114,8 +116,22 @@ const add = new Vue (
                     let newMsgToSend ={...this.inputMsg, status: 'sent',date:'10/01/2020 15:51:59'} ;  
                     this.inputMsg.text='';           
                     this.contacts[index].messages.push(newMsgToSend);   
-                    setTimeout(this.answer(index),5000)  // TODO non funzia il timer
-                }          
+                    setTimeout(this.answer(index),5000);  // TODO non funzia il timer
+    
+                }         
+            },
+            filteredContacts: function () {
+                return this.newContacts = this.contacts.filter((contact)=> {
+                    if (contact.name.toLowerCase().includes(this.filter.toLowerCase())) {
+                        return true;
+                    }
+                    return false;
+                });
+            },
+            printContacts: function() {
+                if(this.newContacts.length === 0){
+                    return true
+                }               
             }
                 
         }
