@@ -98,7 +98,6 @@ body {
     flex-basis: 50%;
     flex-grow: 1;
     overflow: auto;
-    box-shadow: 1px 0 2px rgb(214, 214, 214);
 
 }
 
