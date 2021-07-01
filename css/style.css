@@ -167,13 +167,7 @@ body {
 .mgs-container-send {
     display: flex;
     justify-content: flex-end;
-    /* margin-left: 100px; */
 }
-/* 
-.mgs-container-received {
-    margin-right: 100px;
-} */
-
 
 /* Input & Icons   --> Main Menu */
 .input-msg-container i {
