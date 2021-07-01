@@ -108,7 +108,11 @@
                         <!-- Input & Icons -->
                         <div class="input-msg-container d-flex">
                             <i class="far fa-smile"></i>
-                            <input class="input-msg" type="text" placeholder="Scrivi un messaggio">
+                            <input class="input-msg" type="text" 
+                            v-model="inputMsg.text"
+                            placeholder="Scrivi un messaggio"
+                            @keyup.enter="sendAMessage(currentUser)"
+                            >
                             <i class="fas fa-microphone"></i>
 
                         </div>
