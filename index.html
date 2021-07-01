@@ -50,7 +50,8 @@
 
                         <!-- Contacts List -->
                         <div class="contacts-container">
-                            <div class="contact-content" v-for="(contact,index) in contacts">
+                            <div class="contact-content" v-for="(contact,index) in contacts"
+                            @click="changeUser(index)">
 
                                 <img :src="createSrc(contact)" class="round-img" alt="">
                                 <h5>{{contact.name}}</h5>

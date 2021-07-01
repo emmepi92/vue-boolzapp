@@ -101,6 +101,9 @@ const add = new Vue (
                 if (status === 'sent'){
                     return true;
                 }
+            },
+            changeUser: function(index) {
+                return this.currentUser = index;
             }
             
         }
