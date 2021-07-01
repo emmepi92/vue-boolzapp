@@ -101,6 +101,7 @@ const add = new Vue (
         methods: {
             filteredContacts: function () {
                 this.currentUser = 0;
+                // if (this.filter !== 0 && this.newContacts.length === 0)
                 return this.newContacts = this.contacts.filter((contact)=> {
                     if (contact.name.toLowerCase().includes(this.filter.toLowerCase())) {
                         return true;
@@ -119,17 +120,19 @@ const add = new Vue (
             changeUser: function(index) {
                 return this.currentUser = index;
             },
-            answer: function (index) {
-                let answer = {status: 'received', text: 'ok', date: '10/01/2020 15:30:55'};
-                this.newContacts[index].messages.push(answer);             
-            },
             sendAMessage: function(index) {  
                 if (this.inputMsg.text.trim() !== '') {
                     let newMsgToSend ={...this.inputMsg, status: 'sent',date:'10/01/2020 15:51:59'} ;  
                     this.inputMsg.text='';
-                    this.newContacts[index].messages.push(newMsgToSend);   
-                    setTimeout(this.answer(index),5000);  // TODO non funzia il timer    
+                    this.newContacts[index].messages.push(newMsgToSend);
+                    this.answer(index);
                 }         
+            },
+            answer: function (index) {
+                setTimeout (() => {
+                    let answer = {status: 'received', text: 'ok', date: '10/01/2020 15:30:55'};
+                    this.newContacts[index].messages.push(answer);
+                },2000);
             }         
         }
     }
