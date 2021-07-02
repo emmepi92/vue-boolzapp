@@ -54,7 +54,8 @@
                         </div>
 
                         <!-- Contacts List -->
-                        <div class="contacts-container">
+                        <div class="contacts-container"
+                        v-if="isListContactsEmpty()">
                             <div class="contact-content" 
                             v-for="(contact,index) in newContacts"
                             @click="changeUser(index)">

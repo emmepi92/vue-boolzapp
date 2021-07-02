@@ -93,7 +93,7 @@ const add = new Vue (
             currentUser: 0,
             inputMsg:{},
             filter: '',  
-            newContacts: []    
+            newContacts: []   
         },
         created() {
             this.filteredContacts()
@@ -101,13 +101,19 @@ const add = new Vue (
         methods: {
             filteredContacts: function () {
                 this.currentUser = 0;
-                // if (this.filter !== 0 && this.newContacts.length === 0)
                 return this.newContacts = this.contacts.filter((contact)=> {
                     if (contact.name.toLowerCase().includes(this.filter.toLowerCase())) {
                         return true;
                     }
                     return false;
                 });
+            },
+            // se il filtro non è vuoto e il filtro non è compreso in alcun nome->
+            // array vuoto
+            isListContactsEmpty: function() {
+                if (this.newContacts.length !== 0) {
+                    return true;
+                }
             },
             createSrc: function (contact) {                
                 return './img/avatar' + contact.avatar +'.jpg';
