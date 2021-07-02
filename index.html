@@ -63,7 +63,12 @@
                             @click="changeUser(index)">
 
                                 <img :src="createSrc(contact)" class="round-img" alt="">
-                                <h5>{{contact.name}}</h5>
+                                <div>
+                                    <h5>{{contact.name}}</h5>
+                                    <div class="last-msg-info">{{contact.messages[contact.messages.length - 1].text}}</div>
+                                    <div class="last-msg-info">{{contact.messages[contact.messages.length - 1].date}}</div>
+
+                                </div>
 
                             </div>
 

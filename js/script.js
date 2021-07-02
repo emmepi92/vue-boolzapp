@@ -94,7 +94,8 @@ const add = new Vue (
             inputMsg:{},
             filter: '',            
             datatime: '',
-            displayOptions:'d-none' 
+            displayOptions:'d-none',
+            indice: 2
         },
         methods: {
             filteredContacts: function () {
@@ -144,7 +145,8 @@ const add = new Vue (
                     return this.displayOptions = 'd-none'
                 }
 
-            } 
+            },
+            
         }
     }
 )

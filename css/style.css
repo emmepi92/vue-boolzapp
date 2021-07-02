@@ -112,6 +112,12 @@ body {
     margin-left: 24px;
 }
 
+.last-msg-info {
+    font-size: 13px;
+    margin-left: 24px;
+
+}
+
 /* Main Menu */
 .main-menu {
     background-color: rgb(234, 234, 234);
