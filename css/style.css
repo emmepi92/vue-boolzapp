@@ -200,8 +200,10 @@ body {
 [class*="msg-options"] div {
     padding: 5px 10px;
 }
-
-
+.msg-content {
+    flex-basis: 50%;
+    flex-grow: 1;
+}
 
 /* Input & Icons   --> Main Menu */
 .input-msg-container i {

@@ -97,7 +97,7 @@ const add = new Vue (
             displayOptions:'d-none',
             currentMsg: 0,
             indexMsg:0,
-            lastAccess:''
+            lastAccess:'10/01/2020 16:15:22'
         },
         methods: {
             filteredContacts: function () {
@@ -136,6 +136,7 @@ const add = new Vue (
                 setTimeout (() => {
                     let answer = {status: 'received', text: 'ok', date: this.getDataTimeNow()};
                     this.contacts[index].messages.push(answer);
+                    getLastAccess();
                 },2000);
             },
             showOptions: function (index) {
