@@ -136,7 +136,7 @@ const add = new Vue (
                 setTimeout (() => {
                     let answer = {status: 'received', text: 'ok', date: this.getDataTimeNow()};
                     this.contacts[index].messages.push(answer);
-                    getLastAccess();
+                    this.getLastAccess();
                 },2000);
             },
             showOptions: function (index) {
