@@ -95,7 +95,8 @@ const add = new Vue (
             filter: '',            
             datatime: '',
             displayOptions:'d-none',
-            indice: 2
+            currentMsg: 0,
+            indexMsg:0
         },
         methods: {
             filteredContacts: function () {
@@ -136,17 +137,14 @@ const add = new Vue (
                     this.contacts[index].messages.push(answer);
                 },2000);
             },
-            //come selezionare le info di un solo msg???
             showOptions: function (index) {
-                // this.contacts[this.currentUser].messages[index]
+                this.indexMsg = index;
                 if (this.displayOptions === 'd-none') {
                     return this.displayOptions = 'd-block'
                 } else {
                     return this.displayOptions = 'd-none'
                 }
-
-            },
-            
+            },       
         }
     }
 )

@@ -82,8 +82,8 @@
                         <!-- Info Contact  -->
                         <div class="info-contact d-flex align-items-center">
                             <img class="round-img" 
+                            :src="createSrc(contacts[currentUser])" 
                             alt="">
-                            <!-- :src="createSrc(contacts[currentUser])"  -->
                             <div class="info-contact-content">
                                 <h5>{{contacts[currentUser].name}}</h5>
                                 <span class="text-custom">Ultimo accesso oggi alle </span>
@@ -104,7 +104,7 @@
                                                     <div>{{message.text}}</div>
                                                     <div class="options-container">
                                                         <i @click="showOptions(index)" class="fas fa-chevron-down"></i>
-                                                        <div class="msg-options" :class="displayOptions">
+                                                        <div v-if="index === indexMsg" class="msg-options" :class="displayOptions">
                                                             <div>Message info</div>
                                                             <div>Delete message</div>
                                                         </div>
