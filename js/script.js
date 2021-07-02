@@ -93,7 +93,8 @@ const add = new Vue (
             currentUser: 0,
             inputMsg:{},
             filter: '',  
-            newContacts: []   
+            newContacts: [],
+            datatime: ''  
         },
         created() {
             this.filteredContacts()
@@ -115,6 +116,10 @@ const add = new Vue (
                     return true;
                 }
             },
+            getDataTimeNow: function () {
+                this.datatime = dayjs();
+                return this.datatime.format("DD/MM/YY HH:mm:ss")
+            },
             createSrc: function (contact) {                
                 return './img/avatar' + contact.avatar +'.jpg';
             },
@@ -128,7 +133,7 @@ const add = new Vue (
             },
             sendAMessage: function(index) {  
                 if (this.inputMsg.text.trim() !== '') {
-                    let newMsgToSend ={...this.inputMsg, status: 'sent',date:'10/01/2020 15:51:59'} ;  
+                    let newMsgToSend ={...this.inputMsg, status: 'sent',date: this.getDataTimeNow()} ;  
                     this.inputMsg.text='';
                     this.newContacts[index].messages.push(newMsgToSend);
                     this.answer(index);
@@ -136,7 +141,7 @@ const add = new Vue (
             },
             answer: function (index) {
                 setTimeout (() => {
-                    let answer = {status: 'received', text: 'ok', date: '10/01/2020 15:30:55'};
+                    let answer = {status: 'received', text: 'ok', date: this.getDataTimeNow()};
                     this.newContacts[index].messages.push(answer);
                 },2000);
             }         

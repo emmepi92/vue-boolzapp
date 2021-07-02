@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/gif" href="./img/logo4.png" />
     <title>BoolzApp</title>
@@ -54,9 +55,9 @@
                         </div>
 
                         <!-- Contacts List -->
-                        <div class="contacts-container"
-                        v-if="isListContactsEmpty()">
-                            <div class="contact-content" 
+                        <div class="contacts-container">
+                        <!-- v-if="isListContactsEmpty()" -->
+                        <div class="contact-content" 
                             v-for="(contact,index) in newContacts"
                             @click="changeUser(index)">
 
