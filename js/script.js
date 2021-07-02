@@ -143,7 +143,7 @@ const add = new Vue (
                     return this.displayOptions = 'd-block'
                 } else {
                     return this.displayOptions = 'd-none'
-                }
+                } 
             },       
         }
     }
