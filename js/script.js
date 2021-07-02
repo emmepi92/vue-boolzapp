@@ -90,16 +90,18 @@ const add = new Vue (
                     ],
                 },
             ],
-            currentUser: 0,
-            inputMsg:{},
-            filter: '',            
-            datatime: '',
-            displayOptions:'d-none',
-            currentMsg: 0,
-            indexMsg:0,
+            currentUser: 0,   //contatto selezionato
+            inputMsg:{},      //messaggio in input da inviare
+            filter: '',       // filtro della ricerca
+            datatime: '',     // data per i nuovi msg
+            displayOptions:'d-none',   //classe menu a tendina
+            indexMsg: 0,
             lastAccess:'10/01/2020 16:15:22'
         },
         methods: {
+
+            //uso la proprietà visible per nascondere o meno il contatto,
+            //dopo che l'utente iserisce nell'input il filter 
             filteredContacts: function () {
                 this.contacts.forEach(contact =>{
                     if (!contact.name.toLowerCase().includes(this.filter.toLowerCase())) {
@@ -124,23 +126,40 @@ const add = new Vue (
             changeUser: function(index) {
                 return this.currentUser = index;
             },
-            sendAMessage: function(index) {  
+            sendAMessage: function(index) {
+                
+                //messaggio ne vuoto ne stringa di soli spazi
                 if (this.inputMsg.text.trim() !== '') {
-                    let newMsgToSend ={...this.inputMsg, status: 'sent',date: this.getDataTimeNow()} ;  
-                    this.inputMsg.text='';
+
+                    //creo un nuovo oggetto newMsgToSend, partendo dall'input salvato in inputMsg
+                    //aggiungo la data e lo statu:'sent', e pusho
+                    let newMsgToSend ={...this.inputMsg, status: 'sent',date: this.getDataTimeNow()};
                     this.contacts[index].messages.push(newMsgToSend);
+                    
+                    //reset dell'input
+                    this.inputMsg.text='';
+                    
+                    //richiamo funzione risposta
                     this.answer(index);
                 }         
             },
             answer: function (index) {
                 setTimeout (() => {
+
+                    //creo il nuovo oggetto da pushare nei msg
                     let answer = {status: 'received', text: 'ok', date: this.getDataTimeNow()};
                     this.contacts[index].messages.push(answer);
+
+                    //aggiorno l'ultimo accesso
                     this.getLastAccess();
                 },2000);
             },
             showOptions: function (index) {
+
+                //salvo l'attuare index del messaggio del contatto
                 this.indexMsg = index;
+
+                //al click mostro/nascondo la tendina
                 if (this.displayOptions === 'd-none') {
                     return this.displayOptions = 'd-block'
                 } else {
@@ -148,21 +167,21 @@ const add = new Vue (
                 } 
             },  
             deteteMsg: function (index) {
-                //apri la tendina, chiudi la tendina
+                //chiudo la tendina, altrimenti resta aperta allo stesso indice
                 this.displayOptions = 'd-none'; 
 
+                //elimino il messaggio
                 this.contacts[this.currentUser].messages.splice(index,1);
             },
             getLastAccess: function() {
-                //devo prendere la data dell'ultimo messaggio allo stato received
-                //for each che naviga nei messaggi e ri-salva la data
-                //solo se il messaggio è received
+
+                //ciclo le date di tutti i messaggi del contatto selezionato
+                //sovrascrivo la data dell'ultimo msg se lo stato è 'received'
                 this.contacts[this.currentUser].messages.forEach((message)=>{
                     if (message.status === 'received') {
                         this.lastAccess = message.date
                     }
                 return this.lastAccess
-
                 })
             }  
         }
