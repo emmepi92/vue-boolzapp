@@ -144,7 +144,10 @@ const add = new Vue (
                 } else {
                     return this.displayOptions = 'd-none'
                 } 
-            },       
+            },  
+            deteteMsg: function (index) {
+                this.contacts[this.currentUser].messages.splice(index,1);
+            }     
         }
     }
 )

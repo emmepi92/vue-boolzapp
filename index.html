@@ -105,8 +105,8 @@
                                                     <div class="options-container">
                                                         <i @click="showOptions(index)" class="fas fa-chevron-down"></i>
                                                         <div v-if="index === indexMsg" class="msg-options" :class="displayOptions">
+                                                            <div @click="deteteMsg(index)">Delete message</div>
                                                             <div>Message info</div>
-                                                            <div>Delete message</div>
                                                         </div> 
                                                     </div>
                                                 </div>
@@ -122,8 +122,12 @@
                                             <div class="received">
                                                 <div class="d-flex">
                                                     <div>{{message.text}}</div>
-                                                    <div>
-                                                        <i class="fas fa-chevron-down"></i>
+                                                    <div class="options-container">
+                                                        <i @click="showOptions(index)" class="fas fa-chevron-down"></i>
+                                                        <div v-if="index === indexMsg" class="msg-options" :class="displayOptions">
+                                                            <div @click="deteteMsg(index)">Delete message</div>
+                                                            <div>Message info</div>
+                                                        </div> 
                                                     </div>
                                                 </div>
                                                 <div class="data-msg">{{message.date}}</div>

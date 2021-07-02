@@ -188,7 +188,8 @@ body {
     font-size: 15px;
     color: #555;
     border-radius: 3px;
-    box-shadow: 0 2px 5px #999;    
+    box-shadow: 0 2px 5px #999;  
+    z-index: 1001;  
 }
 .msg-options div {
     padding: 5px 10px;
