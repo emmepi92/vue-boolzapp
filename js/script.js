@@ -92,30 +92,20 @@ const add = new Vue (
             ],
             currentUser: 0,
             inputMsg:{},
-            filter: '',  
-            newContacts: [],
-            datatime: ''  
-        },
-        created() {
-            this.filteredContacts()
+            filter: '',            
+            datatime: '',
+            displayOptions:'d-none' 
         },
         methods: {
             filteredContacts: function () {
-                this.currentUser = 0;
-                return this.newContacts = this.contacts.filter((contact)=> {
-                    if (contact.name.toLowerCase().includes(this.filter.toLowerCase())) {
-                        return true;
+                this.contacts.forEach(contact =>{
+                    if (!contact.name.toLowerCase().includes(this.filter.toLowerCase())) {
+                            contact.visible = false;
+                    } else {
+                        contact.visible = true;
                     }
-                    return false;
-                });
-            },
-            // se il filtro non è vuoto e il filtro non è compreso in alcun nome->
-            // array vuoto
-            isListContactsEmpty: function() {
-                if (this.newContacts.length !== 0) {
-                    return true;
-                }
-            },
+                })
+            },            
             getDataTimeNow: function () {
                 this.datatime = dayjs();
                 return this.datatime.format("DD/MM/YY HH:mm:ss")
@@ -135,16 +125,26 @@ const add = new Vue (
                 if (this.inputMsg.text.trim() !== '') {
                     let newMsgToSend ={...this.inputMsg, status: 'sent',date: this.getDataTimeNow()} ;  
                     this.inputMsg.text='';
-                    this.newContacts[index].messages.push(newMsgToSend);
+                    this.contacts[index].messages.push(newMsgToSend);
                     this.answer(index);
                 }         
             },
             answer: function (index) {
                 setTimeout (() => {
                     let answer = {status: 'received', text: 'ok', date: this.getDataTimeNow()};
-                    this.newContacts[index].messages.push(answer);
+                    this.contacts[index].messages.push(answer);
                 },2000);
-            }         
+            },
+            //come selezionare le info di un solo msg???
+            showOptions: function (index) {
+                // this.contacts[this.currentUser].messages[index]
+                if (this.displayOptions === 'd-none') {
+                    return this.displayOptions = 'd-block'
+                } else {
+                    return this.displayOptions = 'd-none'
+                }
+
+            } 
         }
     }
 )
