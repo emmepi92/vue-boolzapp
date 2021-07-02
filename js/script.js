@@ -146,10 +146,9 @@ const add = new Vue (
                 } 
             },  
             deteteMsg: function (index) {
-                //se cancello il primo msg, la tendina resta aperta
-                //cosi no :
+                //apri la tendina, chiudi la tendina
                 this.displayOptions = 'd-none'; 
-                
+
                 this.contacts[this.currentUser].messages.splice(index,1);
             }     
         }
