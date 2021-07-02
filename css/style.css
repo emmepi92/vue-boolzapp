@@ -180,20 +180,27 @@ body {
 .options-container{
     position: relative;
 }
-.msg-options {
+.msg-options-right,
+.msg-options-left {
     position: absolute;
     background-color: white;
-    right: 0;
-    width: 135px;
+    width: 130px;
     font-size: 15px;
     color: #555;
     border-radius: 3px;
     box-shadow: 0 2px 5px #999;  
     z-index: 1001;  
 }
-.msg-options div {
+.msg-options-right {
+    right: 0;
+}
+.msg-options-left {
+    left:0;
+}
+[class*="msg-options"] div {
     padding: 5px 10px;
 }
+
 
 
 /* Input & Icons   --> Main Menu */
