@@ -60,7 +60,7 @@
                             <div class="contact-content" 
                             v-for="(contact,index) in contacts"
                             v-if="contact.visible"
-                            @click="changeUser(index)">
+                            @click="changeUser(index),getLastAccess()">
 
                                 <img :src="createSrc(contact)" class="round-img" alt="">
                                 <div>
@@ -86,7 +86,7 @@
                             alt="">
                             <div class="info-contact-content">
                                 <h5>{{contacts[currentUser].name}}</h5>
-                                <span class="text-custom">Ultimo accesso oggi alle </span>
+                                <span class="text-custom">Ultimo accesso oggi alle {{ lastAccess }} </span>
                             </div>
                             <i class="fas fa-search"></i>
                             <i class="fas fa-paperclip"></i>

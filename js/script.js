@@ -96,7 +96,8 @@ const add = new Vue (
             datatime: '',
             displayOptions:'d-none',
             currentMsg: 0,
-            indexMsg:0
+            indexMsg:0,
+            lastAccess:''
         },
         methods: {
             filteredContacts: function () {
@@ -150,7 +151,19 @@ const add = new Vue (
                 this.displayOptions = 'd-none'; 
 
                 this.contacts[this.currentUser].messages.splice(index,1);
-            }     
+            },
+            getLastAccess: function() {
+                //devo prendere la data dell'ultimo messaggio allo stato received
+                //for each che naviga nei messaggi e ri-salva la data
+                //solo se il messaggio è received
+                this.contacts[this.currentUser].messages.forEach((message)=>{
+                    if (message.status === 'received') {
+                        this.lastAccess = message.date
+                    }
+                return this.lastAccess
+
+                })
+            }  
         }
     }
 )
