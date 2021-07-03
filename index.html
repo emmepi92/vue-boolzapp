@@ -65,7 +65,9 @@
                                 <img :src="createSrc(contact)" class="round-img" alt="">
                                 <div>
                                     <h5>{{contact.name}}</h5>
-                                    <div class="last-msg-info">{{contact.messages[contact.messages.length - 1].text}}</div>
+                                    <!-- <div class="last-msg-info">{{contact.messages[contact.messages.length - 1].text}}</div> -->
+                                    <div class="last-msg-info">{{cutAMsg(contact.messages[contact.messages.length - 1].text)}}</div>
+
                                     <div class="last-msg-info">{{contact.messages[contact.messages.length - 1].date}}</div>
 
                                 </div>

@@ -198,6 +198,19 @@ const add = new Vue (
             closeOptions: function() {
                 //chiudo la tendina, altrimenti resta aperta allo stesso indice
                 this.displayOptions = 'd-none';
+            },
+            cutAMsg: function (msg) {
+                if (msg.length > 25) {
+                    let cutMsg = '';
+                    for (let x = 0; x < 25; x ++) {
+                        cutMsg += msg[x]
+                    }
+                    cutMsg += '...'; 
+                    return cutMsg;
+                } else {
+                    return msg;
+                }
+
             }
         }
     }
