@@ -133,7 +133,6 @@ const add = new Vue (
             changeUser: function(index) {
 
                 //chiudo tendina, altrimenti resta aperta sul messaggio con lo stesso index
-                this.closeOptions();
                 return this.currentUser = index;
             },
             sendAMessage: function(index) {

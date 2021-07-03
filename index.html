@@ -21,7 +21,7 @@
         <div class="container main-container">
             <div class="row">
                 <div class="col-5 p-0">
-                    <div class="aside-menu">
+                    <div class="aside-menu" @click="closeOptions()">
 
                         <!-- Info User -->
                         <div class="info-user d-flex align-items-center">
@@ -80,7 +80,7 @@
                     <div class="main-menu">
 
                         <!-- Info Contact  -->
-                        <div class="info-contact d-flex align-items-center">
+                        <div class="info-contact d-flex align-items-center" @click="closeOptions()">
                             <img class="round-img" 
                             :src="createSrc(contacts[currentUser])" 
                             alt="">
@@ -95,6 +95,7 @@
 
                         <!-- Chat -->
                         <div class="chat">
+                            <!-- v-if che se la tendina è aperta, la chiuse -->
                             <div v-for="(message,index) in contacts[currentUser].messages">
                                 <div class="row" v-if="isASentMsg(message.status)">
                                     <div class="col-10 offset-2">
@@ -144,7 +145,7 @@
 
 
                         <!-- Input & Icons -->
-                        <div class="input-msg-container d-flex">
+                        <div class="input-msg-container d-flex" @click="closeOptions()">
                             <i class="far fa-smile"></i>
 
                             <input class="input-msg" type="text" 
