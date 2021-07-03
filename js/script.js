@@ -124,6 +124,9 @@ const add = new Vue (
                 }
             },
             changeUser: function(index) {
+
+                //chiudo tendina, altrimenti resta aperta sul messaggio con lo stesso index
+                this.closeOptions();
                 return this.currentUser = index;
             },
             sendAMessage: function(index) {
@@ -156,7 +159,8 @@ const add = new Vue (
             },
             showOptions: function (index) {
 
-                //salvo l'attuare index del messaggio del contatto
+                //essendo i messagi un array,salvo l'attuare 
+                //index del messaggio, sul quale ho cliccato
                 this.indexMsg = index;
 
                 //al click mostro/nascondo la tendina
@@ -167,8 +171,9 @@ const add = new Vue (
                 } 
             },  
             deteteMsg: function (index) {
-                //chiudo la tendina, altrimenti resta aperta allo stesso indice
-                this.displayOptions = 'd-none'; 
+                
+                //chiudo tendina, altrimenti resta aperta sul messaggio con lo stesso index
+                this.closeOptions();                
 
                 //elimino il messaggio
                 this.contacts[this.currentUser].messages.splice(index,1);
@@ -183,7 +188,11 @@ const add = new Vue (
                     }
                 return this.lastAccess
                 })
-            }  
+            },
+            closeOptions: function() {
+                //chiudo la tendina, altrimenti resta aperta allo stesso indice
+                this.displayOptions = 'd-none';
+            }
         }
     }
 )
