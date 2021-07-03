@@ -90,13 +90,20 @@ const add = new Vue (
                     ],
                 },
             ],
-            currentUser: 0,   //contatto selezionato
-            inputMsg:{},      //messaggio in input da inviare
-            filter: '',       // filtro della ricerca
-            datatime: '',     // data per i nuovi msg
-            displayOptions:'d-none',   //classe menu a tendina
-            indexMsg: 0,
-            lastAccess:'10/01/2020 16:15:22'
+            //contatto selezionato
+            currentUser: 0,                  
+            //messaggio in input da inviare
+            inputMsg:{},                     
+            // filtro della ricerca
+            filter: '',                      
+            // data per i nuovi msg
+            datatime: '',                    
+            //classe menu a tendina
+            displayOptions:'d-none',         
+            //indice del messaggio sul quale si è cliccato, per la tendina
+            indexMsg: 0,                     
+            //ultimo accesso da mostrare al contatto selezionato
+            lastAccess:'10/01/2020 16:15:22' 
         },
         methods: {
 
