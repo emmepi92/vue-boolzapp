@@ -134,7 +134,7 @@ const add = new Vue (
                 }
             },
             changeUser: function(index) {
-
+                this.onpenLastMsg();
                 //chiudo tendina, altrimenti resta aperta sul messaggio con lo stesso index
                 return this.currentUser = index;
             },
@@ -226,7 +226,7 @@ const add = new Vue (
                     let element = elements[elements.length - 1];
                     return element.scrollIntoView();
 
-                },100)
+                },10)
             }
         }
     }
