@@ -105,6 +105,9 @@ const add = new Vue (
             //ultimo accesso da mostrare al contatto selezionato
             lastAccess:'10/01/2020 16:15:22' 
         },
+        mounted () {
+            this.onpenLastMsg();
+        },
         methods: {
 
             //uso la proprietà visible per nascondere o meno il contatto,
@@ -147,6 +150,9 @@ const add = new Vue (
                     
                     //reset dell'input
                     this.inputMsg.text='';
+
+                    this.onpenLastMsg();
+
                     
                     //richiamo funzione risposta
                     this.answer(index);
@@ -161,6 +167,7 @@ const add = new Vue (
 
                     //aggiorno l'ultimo accesso
                     this.getLastAccess();
+                    this.onpenLastMsg();
                 },2000);
             },
             showOptions: function (index) {
@@ -211,6 +218,15 @@ const add = new Vue (
                     return msg;
                 }
 
+            },
+            // apre sull'ultimo msg
+            onpenLastMsg: function () {
+                setTimeout (() => {
+                    let elements = document.getElementsByClassName("msg-content");
+                    let element = elements[elements.length - 1];
+                    return element.scrollIntoView();
+
+                },100)
             }
         }
     }
